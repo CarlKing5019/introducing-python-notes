@@ -1,0 +1,209 @@
+========================
+2.3 字符串
+========================
+
+
+.. note::
+
+    对 Unicode 的支持使得 Python 3 可以包含世界上任何书面语言以及许多特殊符号。
+
+--------------------
+使用引号创建字符串
+--------------------
+
+在 Python 中可以使用一对 ``'``, ``"``, ``'''``, ``"""`` 来创建字符串.
+三元引号中的换行符无需转义, 多用于创建多行字符串.
+在三元引号包裹的字符串中, 每行的换行符以及行首或行末的空格都会被保留.
+举个例子:
+
+.. code-block:: python
+
+    >>> s = '''a
+    ... b
+    ... c
+    ... d'''
+    >>> s
+    'a\nb\nc\nd'
+    >>> print(s)
+    a
+    b
+    c
+    d
+
+.. warning::
+
+    三元引号包裹的字符串并不是原样输出, 只是换行符无需转义, 但转义仍然是起作用的.
+
+.. note::
+
+    在引号中不包含任何字符即可以创建一个空串.
+
+-----------------------------
+使用 ``str()`` 进行类型转换
+-----------------------------
+
+使用 str() 函数可以将其他 Python 数据类型转换为字符串:
+
+.. code-block:: python
+
+    >>> str(98.6)
+    '98.6'
+    >>> str(1.0e4)
+    '10000.0'
+    >>> str(True)
+    'True'
+
+当调用 print() 函数或者进行字符串差值(string interpolation)时，Python
+内部会自动 使用 str() 将非字符串对象转换为字符串。
+
+
+-----------------------------
+使用 ``\`` 转义
+-----------------------------
+
+换行符: ``\n``, 制表符: ``\t``, 引号也可以进行转义, ``\'``, ``\"``.
+
+
+-----------------------------
+使用 ``+`` 拼接字符串
+-----------------------------
+
+在 Python 中，可以使用 ``+`` 将多个字符串或字符串变量拼接起来:
+
+.. code-block:: python
+
+    >>> 'Release the kraken! ' + 'At once!'
+    'Release the kraken! At once!'
+
+
+-----------------------------
+使用 ``*`` 复制字符串
+-----------------------------
+
+.. code-block:: python
+
+    >>> test = 'ha' * 4 + 'wa' * 3
+    >>> test
+    'hahahahawawawa'
+
+
+-----------------------------
+使用 ``[]`` 提取字符
+-----------------------------
+
+使用 ``string[index]`` 可以提取字符串 ``string`` 中 ``index``
+位置的单个字符. 注意: 0 表示第一个字符, 1 表示第二个字符, ... ,  -1
+表示最后一个字符.
+
+.. code-block:: python
+
+    >>> letters = 'abcdefghijklmnopqrstuvwxyz'
+    >>> letters[0]
+    'a'
+    >>> letters[1]
+    'b'
+    >>> letters[-1]
+    'z'
+    >>> letters[-2]
+    'y'
+
+.. note::
+
+    位置索引在其他序列类型, 如列表和元组中的用法也是这样.
+
+.. Warning::
+
+    字符串是不可变的, 无法通过给 ``string[index]`` 赋值的方式改变字符串的值.
+
+
+------------------------------------------
+使用切片 ``[start:end:step]`` 提取字符串
+------------------------------------------
+
+切片操作 (slice) 可以从一个字符串中提取子字符串. ``[start:end:step]``
+称为一个切片, 得到的子串包含从 ``start`` 到 ``end`` 之前的间隔为
+``step`` 的全部字符. 三个参数的值都是可以省略的, 如果省略 ``start``
+默认从开头提取; 省略 ``end`` 默认提取到结尾; 省略 ``step`` 默认步长为 1.
+
+常用的切片操作及其含义如下:
+
+-  ``[:]`` 提取从开头到结尾的整个字符串.
+-  ``[start:]`` 提取从 ``start`` 到结尾的字符串.
+-  ``[:end]`` 提取从开头到 ``end-1`` 的字符串.
+-  ``[start:end]`` 提取从 ``start`` 到 ``end-1`` 的字符串.
+-  ``[start:end:step]`` 提取从 ``start`` 到 ``end-1`` 间隔为 ``step``
+   的字符串.
+-  ``[::step]`` 提取从开头到结尾, 步长为 ``step`` 的字符串
+
+.. code-block:: python
+
+    >>> letters = 'abcdefghijklmnopqrstuvwxyz'
+    >>> letters[:]
+    'abcdefghijklmnopqrstuvwxyz'
+    >>> letters[7:]
+    'hijklmnopqrstuvwxyz'
+    >>> letters[:-3]
+    'abcdefghijklmnopqrstuvw'
+    >>> letters[7:-3]
+    'hijklmnopqrstuvw'
+    >>> letters[::2]
+    'acegikmoqsuwy'
+    >>> letters[7:-3:2]
+    'hjlnprtv'
+    >>> letters[7::2]
+    'hjlnprtvxz'
+    >>> letters[:20:2]
+    'acegikmoqs'
+
+.. note::
+
+    如果步长为负数, 则从右到左反向进行提取操作.
+
+.. code-block:: python
+
+    >>> letters[-1::-1]
+    'zyxwvutsrqponmlkjihgfedcba'
+    >>> letters[::-1]
+    'zyxwvutsrqponmlkjihgfedcba'
+    >>> letters[0::-1]
+    'a'
+
+.. note::
+
+    切片操作对于无效偏移量的容忍程度远大于单字符串提取.
+    如果在切片对应的索引位置不存在字符, 也不会报错, 而是返回空字符.
+
+.. code-block:: python
+
+    >>> letters[-50:]
+    'abcdefghijklmnopqrstuvwxyz'
+    >>> letters[-50:-40]
+    ''
+    >>> letters[:70]
+    'abcdefghijklmnopqrstuvwxyz'
+    >>> letters[60:70]
+    ''
+
+------------------------------------------
+使用 ``len()`` 获取长度
+------------------------------------------
+
+
+.. code-block:: python
+
+    >>> len(letters)
+    26
+    >>> len('')
+    0
+
+.. note::
+
+    也可以对其他的序列类型使用 ``len()``.
+
+.. warning::
+
+    ``len()`` 是函数, 而不是字符串的方法.
+
+--------------
+
+Last update: Jul 6, 2017

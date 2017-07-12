@@ -1,0 +1,92 @@
+======================
+2.2 数字
+======================
+
+Python 中支持的数学运算符如下:
+
+.. code-block:: python
+
+    +       # 加法
+    -       # 减法
+    *       # 乘法
+    /       # 浮点数除法 (转换为浮点数相除, 并得到浮点数结果)
+    //      # 整数除法 (返回商)
+    %       # 模 (返回余数)
+    **      # 幂 (这个比较奇葩, 咋不用 ^ 呢)
+
+-----
+基数
+-----
+
+在 Python 中, 除十进制外还可以使用其他三种进制的数字:
+
+-  ``0b`` 或 ``0B`` 代表二进制
+-  ``0o`` 或 ``0O`` 代表八进制
+-  ``0x`` 或 ``0X`` 代表十六进制
+
+--------
+类型转换
+--------
+
+使用 ``int()`` 函数可以将布尔型, 整型, 或者浮点数,
+或者由数字组成的字符串转换为整数. 对于布尔型转换为 1 或 0, 对于浮点数返回其整数部分.
+
+.. code-block:: python
+
+    >>> int(True)
+    1
+    >>> int(False)
+    0
+    >>> int('99')
+    99
+    >>> int('-23')
+    23
+    >>> int('+12')
+    12
+    >>> int(98.6)
+    98
+    >>> int(1.0e4)
+    10000
+    >>> int('98.6')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: invalid literal for int() with base 10: '98.6'
+    >>> int('1.0e4')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: invalid literal for int() with base 10: '1.0e4'
+
+.. Tip::
+
+   Mac 终端中 Python 交互界面下的清屏快捷键是 ``Command+K``,
+   比其他系统下方便多了.
+
+.. Tip::
+
+   Python 3 中 int 类型可以存储 **任意大小** 的整数.
+
+
+------
+浮点数
+------
+
+使用 ``float()`` 函数可以将布尔型, 整型,
+或包含有效整数或有效浮点数的字符串转换为浮点型.
+
+.. code-block:: python
+
+    >>> float(True)
+    1.0
+    >>> float(False)
+    0.0
+    >>> float(98)
+    98.0
+    >>> float('99')
+    99.0
+    >>> float('98.6')
+    98.6
+    >>> float('-1.5')
+    -1.5
+    >>> float('1.0e4')
+    10000.0
+    >>>

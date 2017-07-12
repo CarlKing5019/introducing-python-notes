@@ -1,0 +1,35 @@
+=========================
+2.1 变量, 名字和对象
+=========================
+
+
+Python 是强类型的, 永远无法修改一个已有对象的类型,
+即使它包含的值是可变的. 但可以给一个变量赋不同于其值的类型的值.
+举个例子, 以下代码在 Python 中是合法的.
+
+.. code-block:: python
+
+    >>> a=123
+    >>> a
+    123
+    >>> a='abc'
+    >>> a
+    'abc'
+
+Python 中变量名命名规则
+
+1. 只能包含以下字符: ``[a-zA-Z0-9_]``;
+2. 不允许以数字开头;
+3. 以下划线开头的名字有特殊含义.
+
+Python 中的保留字
+
+.. code-block:: python
+
+    True        class       finally     is          return
+    False       continue    for         lambda      try
+    None        def         from        nonlocal    while
+    and         del         global      not         with
+    as          elif        if          or          yield
+    assert      else        import      pass
+    break       except      in          raise
