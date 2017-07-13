@@ -1,0 +1,3 @@
+.codeblock, pre.literal-block, .rst-content .literal-block, .rst-content pre.literal-block, div[class^="highlight"] pre {
+    font-family:monospace, serif;
+}

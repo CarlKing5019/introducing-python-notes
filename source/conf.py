@@ -59,7 +59,7 @@ exclude_patterns = []
 
 html_theme = 'default'
 
-# html_static_path = ['_static']
+html_static_path = ['_static']
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'introducing-python-notes doc'
@@ -166,3 +166,8 @@ html_theme_options = {
 
 _exts = "../exts"
 sys.path.append(os.path.abspath(_exts))
+
+
+# Add a custom css file.
+def setup(app):
+    app.add_stylesheet('css/custom.css')  # may also be an URL
