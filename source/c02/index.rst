@@ -10,7 +10,7 @@
 - 字符串型: ``<class 'str'>``
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :glob:
 
    p*

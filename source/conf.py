@@ -93,7 +93,7 @@ latex_elements={# The paper size ('letterpaper' or 'a4paper').
 \newcommand\normalsecnumdepth{\setcounter{secnumdepth}{2}}
 
 % 所有层次章节都不编号
-\newcommand\specialsecnumdepth{\setcounter{secnumdepth}{-2}}  
+\newcommand\specialsecnumdepth{\setcounter{secnumdepth}{-2}}
 
 % toc 到 subsection
 \newcommand\normaltocdepth{
@@ -161,7 +161,7 @@ else:
 html_theme_options = {
     'collapse_navigation': False,
     'display_version': True,
-    'navigation_depth': 2,
+    'navigation_depth': 3,
 }
 
 _exts = "../exts"
